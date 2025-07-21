@@ -13,8 +13,6 @@ CARPETA_SALIDA_ENTRENAMIENTO = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Labo
 ARCHIVO_ENTRENAMIENTO = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\tiempos_entrenamiento.csv"
 NUM_HILOS = 8
 
-os.makedirs(CARPETA_SALIDA, exist_ok=True)
-
 def procesar_imagen(path_imagen, nombre_salida):
     inicio = time.time()
     img = cv2.imread(str(path_imagen))
@@ -37,19 +35,23 @@ def fase_entrenamiento():
     tiempos_por_shape = {}
 
     print("\n=== FASE DE ENTRENAMIENTO ===")
+    tiempo_total_entrenamiento=0
     for path in entrenamiento_imgs:
+        t0_entrenamiento = time.time()
         img = cv2.imread(str(path))
         if img is None:
             continue
         shape = img.shape  # (alto, ancho, canales)
-        _, duracion = procesar_imagen(path, Path(CARPETA_SALIDA) / f"entrenamiento_{path.name}")
+        _, duracion = procesar_imagen(path, Path(CARPETA_SALIDA_ENTRENAMIENTO) / f"entrenamiento_{path.name}")
         if shape not in tiempos_por_shape:
             tiempos_por_shape[shape] = []
         tiempos_por_shape[shape].append(duracion)
+        t1_entrenamiento = time.time()
+        tiempo_total_entrenamiento = (t1_entrenamiento - t0_entrenamiento)+tiempo_total_entrenamiento
         print(f"{path.name} (shape: {shape}) tiempo: {duracion:.3f} s")
 
     promedios_shape = {s: sum(lst)/len(lst) for s, lst in tiempos_por_shape.items()}
-
+    
     # --- Guardar promedios en archivo CSV ---
     with open(ARCHIVO_ENTRENAMIENTO, "w", newline="") as csvfile:
         writer = csv.writer(csvfile)
@@ -61,6 +63,8 @@ def fase_entrenamiento():
     print("\nPromedios guardados en", ARCHIVO_ENTRENAMIENTO)
     for s, prom in promedios_shape.items():
         print(f"{s}: {prom:.3f} s")
+
+    print(f"Procesamiento terminado. Tiempo total: {tiempo_total_entrenamiento:.2f} segundos.")
 
 def cargar_promedios():
     promedios_shape = {}
@@ -116,7 +120,7 @@ def fase_ejecucion():
     t1 = time.time()
     tiempo_total = t1 - t0
 
-    print(f"Procesamiento terminado. Tiempo total: {tiempo_total:.2f} segundos.")
+    print(f"Procesamiento terminado. Tiempo total: {tiempo_total:.3f} segundos.")
 
 if __name__ == "__main__":
     # Cambia entre 'entrenamiento' y 'ejecutar' aquí:
