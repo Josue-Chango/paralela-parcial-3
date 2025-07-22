@@ -55,7 +55,9 @@ def procesar_imagen(archivo_entrada, carpeta_salida):
 
 if __name__ == "__main__":
     carpeta_entrada = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"
+    # r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"    josue
     carpeta_salida = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida"
+     # r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida"    josue
 
     if not os.path.exists(carpeta_salida):
         os.makedirs(carpeta_salida)

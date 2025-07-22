@@ -7,11 +7,17 @@ from pathlib import Path
 
 # --- CONFIGURACIÓN ---
 CARPETA_ENTRENAMIENTO = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes_entrenamiento"
+# r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes_entrenamiento"   josue
 CARPETA_IMAGENES = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"
+# r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"   josue
 CARPETA_SALIDA = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida"
+# r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida"    josue
 CARPETA_SALIDA_ENTRENAMIENTO = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida_entrenamiento"
+# r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida_entrenamiento"    josue
 ARCHIVO_ENTRENAMIENTO = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\tiempos_entrenamiento.csv"
+# r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\tiempos_entrenamiento.csv"    josue
 NUM_HILOS = 8
+
 
 def procesar_imagen(path_imagen, nombre_salida):
     inicio = time.time()
