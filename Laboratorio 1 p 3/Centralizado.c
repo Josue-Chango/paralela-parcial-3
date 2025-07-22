@@ -15,8 +15,8 @@
 #define MAX_ARCHIVOS 200
 #define MAX_NOMBRE 256
 
-const char *carpeta_entrada = "C:\\Users\\Usuario\\Desktop\\Paralela\\Parcial3\\Balanceo Centralizado\\balanceo_centralizado\\imagenes";
-const char *carpeta_salida  = "C:\\Users\\Usuario\\Desktop\\Paralela\\Parcial3\\Balanceo Centralizado\\balanceo_centralizado\\salida";
+const char *carpeta_entrada = "H:\\GIT\paralela-parcial-3\\Laboratorio 1 p 3\\imagenes";
+const char *carpeta_salida  = "H:\\GIT\\paralela-parcial-3\\Laboratorio 1 p 3\\salida";
 
 void convertir_a_grises(const char *nombre_archivo, const char *nombre_salida) {
     int width, height, channels;
