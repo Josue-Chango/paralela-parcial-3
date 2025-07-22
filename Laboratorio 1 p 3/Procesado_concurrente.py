@@ -54,10 +54,10 @@ def procesar_imagen(archivo_entrada, carpeta_salida):
     print(f"Procesamiento terminado. Tiempo total: {total_tiempo:.3f} segundos.")
 
 if __name__ == "__main__":
-    carpeta_entrada = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"
-    # r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"    josue
-    carpeta_salida = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida"
-     # r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\salida"    josue
+    carpeta_entrada = r"H:\GIT\paralela-parcial-3\Laboratorio 1 p 3\imagenes"
+    # r"H:\GIT\paralela-parcial-3\Laboratorio 1 p 3\imagenes"    josue
+    carpeta_salida = r"H:\GIT\paralela-parcial-3\Laboratorio 1 p 3\salida"
+     # r"H:\GIT\paralela-parcial-3\Laboratorio 1 p 3\salida"    josue
 
     if not os.path.exists(carpeta_salida):
         os.makedirs(carpeta_salida)
