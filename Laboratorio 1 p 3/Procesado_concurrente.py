@@ -7,14 +7,14 @@ import threading
 # Índice compartido para que cada hilo tome la siguiente imagen
 indice_imagen = 0
 lock = threading.Lock()
-total_tiempo=0
+#total_tiempo=0
 
 def es_imagen(nombre_archivo):
     nombre = nombre_archivo.lower()
     return nombre.endswith(('.jpg', '.jpeg', '.png', '.bmp', '.gif'))
 
 def procesar_imagen(archivo_entrada, carpeta_salida):
-    
+    total_tiempo=0
     global indice_imagen
     while True:
         with lock:
@@ -51,7 +51,7 @@ def procesar_imagen(archivo_entrada, carpeta_salida):
         
         except Exception as e:
             print(f"Error procesando imagen {archivo}: {e}")
-print(f"Procesamiento terminado. Tiempo total: {total_tiempo:.3f} segundos.")
+    print(f"Procesamiento terminado. Tiempo total: {total_tiempo:.3f} segundos.")
 
 if __name__ == "__main__":
     carpeta_entrada = r"H:\GIT\4rto\Paralela\Parcial3\Laboratorios\Laboratorio1\imagenes"
